@@ -16,7 +16,7 @@ readonly repodir="/yzaj/${REPO}"
 readonly src="/etc/profile.d/yzaj-${REPO}.sh"
 
 if [[ ! -f "/${MINTTY}" ]]; then
-  err "Please use cygwin to execute"
+  err "uninstall.sh: please use cygwin to execute"
   exit "${E_USE_MINTTY}"
 fi
 

@@ -19,7 +19,7 @@ readonly tempdir="/yzaj/temp/${REPO}"
 readonly src="/etc/profile.d/yzaj-${REPO}.sh"
 
 if [[ ! -f "/${MINTTY}" ]]; then
-  err "Please use cygwin to execute"
+  err "install.sh: please use cygwin to execute"
   exit "${E_USE_MINTTY}"
 fi
 
