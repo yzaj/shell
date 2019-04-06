@@ -4,7 +4,7 @@
 set -euo pipefail
 
 # 修改 REPO 的值, 即可
-readonly REPO='phone'
+readonly REPO='shell'
 readonly CMD='git'
 readonly MINTTY='Cygwin-Terminal.ico'
 readonly E_USE_MINTTY=1
