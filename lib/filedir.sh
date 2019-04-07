@@ -31,12 +31,11 @@ filedir::config() {
     while read line; do
       if echo "${line}" | grep -iP "^${key}[ \t]*=[ \t\"\']*${value}[ \t\"\']*$"; then
         
-        :
-        echo "#${line}#"
+        key="$(echo "${line%=*}")"
+        value="$(echo "${line#*=}")"
         
-        
-        
-        
+        echo "##${key}##"
+        echo "##${value}##"
         
         
         
