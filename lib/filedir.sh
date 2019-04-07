@@ -48,9 +48,9 @@ filedir::config() {
         
         #key="$(echo "${line%=*}" | tr '[A-Z]' '[a-z]')"
         #value="$(echo "${line#*=}")"
-        #line="${key}=${value}"
+        line="${key}=${value}"
         
-        #export "${line}"
+        export "${line}"
         
       fi
     done < "${file}"
