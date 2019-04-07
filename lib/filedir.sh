@@ -32,22 +32,7 @@ filedir::config() {
       if echo "${line}" | grep -iP "^${key}[ \t]*=[ \t\"\']*${value}[ \t\"\']*$"; then
         
         key="$(echo "${line%=*}" | sed 's/[ \t]*//g' | tr '[A-Z]' '[a-z]')"
-        #value="$(echo "${line#*=}" | sed "s/^[ \t]*[\"\'][ \t]*//g" | sed "s/[ \t]*[\"\']$//g")"
         value="$(echo "${line#*=}" | sed "s/^[ \t\"\']*//g" | sed "s/[ \t\"\']*$//g")"
-        echo "##${key}##"
-        echo "##${value}##"
-        
-        
-        
-        
-        
-        #line="$(echo "${line}" | sed 's/^[ \t]*//g' | sed 's/[ \t]*$//g')"
-        #line="$(echo "${line}" | sed 's/[ \t]*=[ \t]*/=/g')"
-        #line="$(echo "${line}" | sed 's/"[ \t]*//g' | sed 's/[ \t]*"//g')"
-        #line="$(echo "${line}" | sed "s/'[ \t]*//g" | sed "s/[ \t]*'//g")"
-        
-        #key="$(echo "${line%=*}" | tr '[A-Z]' '[a-z]')"
-        #value="$(echo "${line#*=}")"
         line="${key}=${value}"
         
         export "${line}"
