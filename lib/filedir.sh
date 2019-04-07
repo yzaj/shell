@@ -32,7 +32,7 @@ filedir::config() {
       if echo "${line}" | grep -iP "^[ \t]*${key}[ \t]*=[ \t\"\']*${value}[ \t\"\']*$"; then
         
         :
-        
+        echo "#${line}#"
         
         
         
