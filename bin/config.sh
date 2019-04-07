@@ -24,33 +24,13 @@ if [[ -s "${filename}" ]]; then
       line="$(echo "${line}" | sed 's/[ \t]*=[ \t]*/=/g')"
       line="$(echo "${line}" | sed 's/"[ \t]*/"/g' | sed 's/[ \t]*"/"/g')"
       line="$(echo "${line}" | sed "s/'[ \t]*/'/g" | sed "s/[ \t]*'/'/g")"
-      echo "${line}"
+      
+      key="$(echo "${line%=*}" | tr '[A-Z]' '[a-z]')"
+      value="$(echo "${line#*=}")"
+      line="${key}=${value}"
+      
+      export "${line}"
       
     fi
   done < "${filename}"
 fi
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
