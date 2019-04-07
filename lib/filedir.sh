@@ -33,8 +33,8 @@ filedir::config() {
         
         line="$(echo "${line}" | sed 's/^[ \t]*//g' | sed 's/[ \t]*$//g')"
         line="$(echo "${line}" | sed 's/[ \t]*=[ \t]*/=/g')"
-        line="$(echo "${line}" | sed 's/"[ \t]*/"/g' | sed 's/[ \t]*"/"/g')"
-        line="$(echo "${line}" | sed "s/'[ \t]*/'/g" | sed "s/[ \t]*'/'/g")"
+        line="$(echo "${line}" | sed 's/"[ \t]*//g' | sed 's/[ \t]*"//g')"
+        line="$(echo "${line}" | sed "s/'[ \t]*//g" | sed "s/[ \t]*'//g")"
         
         key="$(echo "${line%=*}" | tr '[A-Z]' '[a-z]')"
         value="$(echo "${line#*=}")"
