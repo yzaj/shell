@@ -29,7 +29,7 @@ filedir::config() {
     sed -i 's/\r$//g' "${file}"
     
     while read line; do
-      if echo "${line}" | grep -iP "^[ \t]*${key}[ \t]*=[ \t\"\']*${value}[ \t\"\']*$"; then
+      if echo "${line}" | grep -iP "^${key}[ \t]*=[ \t\"\']*${value}[ \t\"\']*$"; then
         
         :
         echo "#${line}#"
