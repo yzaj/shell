@@ -25,9 +25,9 @@ if [[ -s "${filename}" ]]; then
       line="$(echo "${line}" | sed 's/"[ \t]*/"/g' | sed 's/[ \t]*"/"/g')"
       line="$(echo "${line}" | sed "s/'[ \t]*/'/g" | sed "s/[ \t]*'/'/g")"
       
-      key="$(echo "${line%=*}" | tr '[A-Z]' '[a-z]')"
-      value="$(echo "${line#*=}")"
-      line="${key}=${value}"
+      line_key="$(echo "${line%=*}" | tr '[A-Z]' '[a-z]')"
+      line_value="$(echo "${line#*=}")"
+      line="${line_key}=${line_value}"
       
       export "${line}"
       
