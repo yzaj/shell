@@ -31,7 +31,7 @@ filedir::config() {
     while read line; do
       if echo "${line}" | grep -iP "^${key}[ \t]*=[ \t\"\']*${value}[ \t\"\']*$"; then
         
-        key="$(echo "${line%=*}")"
+        key="$(echo "${line%=*}" | sed 's/[ \t]*//g' | tr '[A-Z]' '[a-z]')"
         value="$(echo "${line#*=}")"
         
         echo "##${key}##"
