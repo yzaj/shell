@@ -15,18 +15,42 @@ readonly value="$2"
 readonly filename="$3"
 
 if [[ -s "${filename}" ]]; then
-
-sed -i 's/\r$//g'
+  sed -i 's/\r$//g' "${filename}"
+  
   while read line; do
-    
     if echo "${line}" | grep -iP "^[ \t]*${key}[ \t]*=[ \t\"\']*${value}[ \t\"\']*$"; then
       
       line="$(echo "${line}" | sed 's/^[ \t]*//g' | sed 's/[ \t]*$//g')"
-      line="$(echo "${line}" | sed 's/[ \t]*=[ \t]*//g')"
-      line="$(echo "${line}" | sed 's///g' | sed 's///g')"
-      line="$(echo "${line}" | sed 's///g' | sed 's///g')"
+      line="$(echo "${line}" | sed 's/[ \t]*=[ \t]*/=/g')"
+      line="$(echo "${line}" | sed 's/"[ \t]*/"/g' | sed 's/[ \t]*"/"/g')"
+      line="$(echo "${line}" | sed "s/'[ \t]*/'/g" | sed "s/[ \t]*'/'/g")"
+      echo "${line}"
       
     fi
-    
   done < "${filename}"
 fi
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
