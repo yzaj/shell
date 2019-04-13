@@ -78,7 +78,7 @@ color::countdown() {
     sleep 1
   done
   
-  echo -ne "        \r"
+  echo -ne "                                                                                    \r"
 }
 
 # 功  能: 
