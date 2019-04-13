@@ -88,10 +88,10 @@ color::countdown() {
   secs="$(seq "${sec}" | sort -nr)"
   
   for sec in ${secs}; do
-    echo -ne "\e[1m\e[40;${head_color}m${head}\e[0m"
-    echo -ne "\e[1m\e[40;${sec_color}m${sec}\e[0m"
-    echo -ne "\e[1m\e[40;${tail_color}m${tail}\e[0m"
-    echo -ne "        \r"
+    color::echoline "${head}" "${head_color}"
+    color::echoline "${sec}" "${sec_color}"
+    color::echoline "${tail}" "${tail_color}"
+    echo -ne "         \r"
     
     sleep 1
   done
