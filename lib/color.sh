@@ -73,7 +73,7 @@ color::countdown() {
     echo -ne "\e[1m\e[40;${head_color}m${head}\e[0m"
     echo -ne "\e[1m\e[40;${sec_color}m${sec}\e[0m"
     echo -ne "\e[1m\e[40;${tail_color}m${tail}\e[0m"
-    echo -ne "\r"
+    echo -ne "        \r"
     
     sleep 1
   done
