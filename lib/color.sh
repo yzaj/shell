@@ -65,14 +65,13 @@ color::countdown() {
   local head_color="$4"
   local tail="$5"
   local tail_color="$6"
-  local nums
-  local num
+  local secs
   
-  nums="$(seq "${sec}" | sort -nr)"
+  secs="$(seq "${sec}" | sort -nr)"
   
-  for num in ${nums}; do
+  for sec in ${secs}; do
     echo -ne "\e[1m\e[40;${head_color}m${head}\e[0m"
-    echo -ne "\e[1m\e[40;${sec_color}m${num}\e[0m"
+    echo -ne "\e[1m\e[40;${sec_color}m${sec}\e[0m"
     echo -ne "\e[1m\e[40;${tail_color}m${tail}\e[0m"
     echo -ne "\r"
     
