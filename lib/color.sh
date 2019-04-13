@@ -38,7 +38,7 @@ color::echo() {
 }
 
 # 功  能: 同 echo, 但不换行
-# 使  用: color::echo 输出内容 颜色值
+# 使  用: color::echoline 输出内容 颜色值
 # 参数 1: 输出内容    [default: ]
 # 参数 2: 颜色值    [default: ]
 # 返回值: 输出内容
