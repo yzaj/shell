@@ -6,6 +6,7 @@ set -euo pipefail
 ###################################################################################################
 #
 #       color::echo
+#       color::echoline
 #       color::read
 #       color::countdown
 #       color::timer
