@@ -26,7 +26,10 @@ err() {
 # 返回值: 
 # 备  注: 
 color::echo() {
+  local message="$1"
+  local color="$2"
   
+  echo -e "\e[1m\e[40;${color}m${message}\e[0m"
 }
 
 # 功  能: 
@@ -37,5 +40,10 @@ color::echo() {
 # 返回值: 
 # 备  注: 
 color::read() {
+  local message="$1"
+  local color="$2"
+  local var="$3"
   
+  echo -ne "\e[1m\e[40;${color}m${message}\e[0m"
+  read "${var}"
 }
