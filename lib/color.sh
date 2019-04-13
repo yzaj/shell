@@ -75,7 +75,7 @@ color::read() {
 # 参数 5: 输出内容的后半部分    [default: ]
 # 参数 6: 颜色值    [default: ]
 # 返回值: 输出内容
-# 备  注: 
+# 备  注: 使用了 color::echoline
 color::countdown() {
   local sec="$1"
   local sec_color="$2"
