@@ -15,6 +15,9 @@ err() {
   echo "[$(date +'%Y-%m-%dT%H:%M:%S%z')]: $@" >&2
 }
 
+color_timer_start_time="$(date '+%s')"
+readonly color_timer_start_time
+
 # 颜色: 黑:30  红:31  绿:32  黄:33  蓝:34  紫:35  天蓝:36  白:37
 # 成功: 'Success' 32
 # 错误: 'Error'   31
@@ -82,13 +85,20 @@ color::countdown() {
   echo -ne "                                                                                                                 \r"
 }
 
-# 功  能: 
-# 使  用: 
+# 功  能: 计时器
+# 使  用: color::timer 颜色值 输出内容 颜色值
 # 参数 1:     [default: ]
 # 参数 2:     [default: ]
 # 参数 3:     [default: ]
 # 返回值: 
 # 备  注: 
 color::timer() {
+  local start_time="${color_timer_start_time}"
+  local end_time
+  local min
+  local sec
   
+  end_time="$(date '+%s')"
+  min=$(((end_time - start_time) / 60))
+  sec=$(((end_time - start_time) % 60))
 }
