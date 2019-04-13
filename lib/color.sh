@@ -18,12 +18,11 @@ err() {
 # 错误: 'Error'   31
 # 警告: 'Warning' 33
 
-# 功  能: 
-# 使  用: 
-# 参数 1:     [default: ]
-# 参数 2:     [default: ]
-# 参数 3:     [default: ]
-# 返回值: 
+# 功  能: 同 echo
+# 使  用: color::echo 输出内容 颜色值
+# 参数 1: 输出内容    [default: ]
+# 参数 2: 颜色值    [default: ]
+# 返回值: 输出内容
 # 备  注: 
 color::echo() {
   local message="$1"
@@ -32,12 +31,12 @@ color::echo() {
   echo -e "\e[1m\e[40;${color}m${message}\e[0m"
 }
 
-# 功  能: 
-# 使  用: 
-# 参数 1:     [default: ]
-# 参数 2:     [default: ]
-# 参数 3:     [default: ]
-# 返回值: 
+# 功  能: 同 read
+# 使  用: color::read 输出内容 颜色值 变量名
+# 参数 1: 输出内容    [default: ]
+# 参数 2: 颜色值    [default: ]
+# 参数 3: 变量名    [default: ]
+# 返回值: 输出内容 和 变量
 # 备  注: 
 color::read() {
   local message="$1"
