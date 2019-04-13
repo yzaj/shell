@@ -8,6 +8,7 @@ set -euo pipefail
 #       color::echo
 #       color::read
 #       color::countdown
+#       color::timer
 #
 ###################################################################################################
 err() {
@@ -88,3 +89,6 @@ color::countdown() {
 # 参数 3:     [default: ]
 # 返回值: 
 # 备  注: 
+color::timer() {
+  
+}
