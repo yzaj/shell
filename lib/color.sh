@@ -7,6 +7,7 @@ set -euo pipefail
 #
 #       color::echo
 #       color::read
+#       color::countdown
 #
 ###################################################################################################
 err() {
@@ -46,3 +47,43 @@ color::read() {
   echo -ne "\e[1m\e[40;${color}m${message}\e[0m"
   read "${var}"
 }
+
+# 功  能: 倒计时
+# 使  用: color::countdown 秒 颜色值 输出内容的前半部分 颜色值 输出内容的后半部分 颜色值
+# 参数 1: 秒    [default: ]
+# 参数 2: 颜色值    [default: ]
+# 参数 3: 输出内容的前半部分    [default: ]
+# 参数 4: 颜色值    [default: ]
+# 参数 5: 输出内容的后半部分    [default: ]
+# 参数 6: 颜色值    [default: ]
+# 返回值: 输出内容
+# 备  注: 
+color::countdown() {
+  local sec="$1"
+  local sec_color="$2"
+  local head="$3"
+  local head_color="$4"
+  local tail="$5"
+  local tail_color="$6"
+  local nums
+  local num
+  
+  nums="$(seq "${sec}" | sort -nr)"
+  
+  for num in ${nums}; do
+    echo -ne "\e[1m\e[40;${head_color}m${head}\e[0m"
+    echo -ne "\e[1m\e[40;${sec_color}m${num}\e[0m"
+    echo -ne "\e[1m\e[40;${tail_color}m${tail}\e[0m"
+    echo -ne "\r"
+    
+    sleep 1
+  done
+}
+
+# 功  能: 
+# 使  用: 
+# 参数 1:     [default: ]
+# 参数 2:     [default: ]
+# 参数 3:     [default: ]
+# 返回值: 
+# 备  注: 
