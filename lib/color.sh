@@ -100,12 +100,12 @@ color::countdown() {
 }
 
 # 功  能: 计时器
-# 使  用: color::timer 颜色值 输出内容 颜色值
+# 使  用: color::timer 颜色值 位于前面的输出内容 颜色值
 # 参数 1: 颜色值    [default: ]
-# 参数 2: 输出内容    [default: ]
+# 参数 2: 位于前面的输出内容    [default: ]
 # 参数 3: 颜色值    [default: ]
 # 返回值: 输出内容
-# 备  注: 
+# 备  注: 使用了 color_timer_start_time, color::echoline, color::echo
 color::timer() {
   local timer_color="$1"
   local message="$2"
@@ -114,13 +114,11 @@ color::timer() {
   local end_time
   local min
   local sec
-  local timer
   
   end_time="$(date '+%s')"
   min=$(((end_time - start_time) / 60))
   sec=$(((end_time - start_time) % 60))
-  timer="${min} min ${sec} sec"
   
-  echo -ne "\e[1m\e[40;${message_color}m${message}\e[0m"
-  echo -e "\e[1m\e[40;${timer_color}m${timer}\e[0m"
+  color::echoline "${message}" "${message_color}"
+  color::echo "${min} min ${sec} sec" "${timer_color}"
 }
