@@ -12,7 +12,7 @@ set -euo pipefail
 
 
 
-# 功  能: 
+# 功  能: 对 Windows 格式, GB2312 编码的文件, 进行字符串替换
 # 使  用: 
 # 参数 1:     [default: ]
 # 参数 2:     [default: ]
