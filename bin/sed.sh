@@ -11,9 +11,9 @@ set -euo pipefail
 # 返回值: 
 # 备  注: 替换后, 文件格式和文件编码不会改变
 
-
-
-
+readonly oldstr="$1"
+readonly newstr="$2"
+readonly filename="$3"
 
 
 
