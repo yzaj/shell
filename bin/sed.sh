@@ -15,8 +15,18 @@ readonly oldstr="$1"
 readonly newstr="$2"
 readonly filename="$3"
 
+if [[ ! -s "${filename}" ]]; then
+  exit
+fi
 
+sed -i 's/\r$//g' "${filename}"
 
+iconv -f GB2312 -t UTF-8 "${filename}" > "${filename}.tmp"
+mv "${filename}.tmp" "${filename}"
 
+sed -i "s/${oldstr}/${newstr}/g" "${filename}"
 
+iconv -f UTF-8 -t GB2312 "${filename}" > "${filename}.tmp"
+mv "${filename}.tmp" "${filename}"
 
+sed -i 's/$/\r/g' "${filename}"
